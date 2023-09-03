@@ -19,6 +19,9 @@ Practicing creating a backend for project
 ## Important Endpoints
 1. ``` GET /api/csrf/restore ``` will allow any developer to re-set the CSRF token cookie XSRF-TOKEN
 2. ``` GET /hello/world ``` is a test route which will return the text 'Hello World', in Application tab of ChromeDevTools two cookies should appear and persist through refreshes, _csrf and XSRF-TOKEN
+3. ``` GET /api/set-token-cookie ``` will be used for testing setting a token cookie, can be verified through browser DevTools
+4. ``` GET /api/restore-user ``` will be used to test the restoreUser middleware and check wether or not the req.user key has been populated by the middleware properly
+5. ``` GET /api/require-auth ``` will be used to test user authentication, if there is no session user the route will return an error, otherwise it will return the session user's information
 
 ## Authentication Flow
 1. The API login route will be pinged with a request body containing a valid credential and password combination
