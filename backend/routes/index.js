@@ -1,8 +1,12 @@
 // Necessary imports
 const express = require('express')
+const apiRouter = require('./api')
 
 // Instantiate a router
 const router = express.Router()
+
+// Connect to apiRouter to router
+router.use('/api', apiRouter)
 
 // Test route
 router.get('/hello/world', function(req, res){
