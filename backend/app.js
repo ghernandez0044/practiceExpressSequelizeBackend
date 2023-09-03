@@ -7,6 +7,7 @@ const csurf = require('csurf')
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser')
 const { environment } = require('./config')
+const routes = require('./routes')
 
 // Checking if the environment is in production or not by checking the environment key in the configuration file
 const isProduction = environment === 'production'
@@ -33,3 +34,8 @@ app.use(helmet.crossOriginResourcePolicy({policy: 'cross-origin'}))
 
 // Set the _csrf token that is http-only to any server response and create req.csrfToken method that will be set to XSRF-TOKEN, these two cookies work together to provide CSRF
 app.use(csurf({cookie: {secure: isProduction, sameSite: isProduction && "Lax", httpOnly: true}}))
+
+// Connect all the routes
+app.use(routes)
+
+module.exports = app
