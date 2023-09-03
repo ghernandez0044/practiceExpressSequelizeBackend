@@ -23,7 +23,7 @@ router.get('/set-token-cookie', async (_req, res) => {
     return res.json({ user: user })
 })
 
-// Test route for restoreUser
+// Test route for restoreUser, see if response has the demo user information returned as JSON, you can remove token cookie manually and refresh, the JSON response should be empty
 router.use(restoreUser)
 
 router.get('/restore-user', (req, res) => {
